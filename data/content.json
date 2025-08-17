@@ -1,0 +1,46 @@
+{
+  "generatedAt": "2025-08-17T21:59:39.140Z",
+  "total": 1,
+  "tags": [
+    "blog",
+    "like",
+    "likes",
+    "memories",
+    "memory",
+    "ml",
+    "post",
+    "posts",
+    "projects"
+  ],
+  "items": [
+    {
+      "id": "L1VzZXJzL2tldmlud2FuZy9PYnNpZGlhbi9QZXJzb25hbCBXZWJzaXRlIERlc2lnbi5tZA==",
+      "slug": "neat-project",
+      "section": "blog",
+      "sections": [
+        "ml"
+      ],
+      "title": "Neat Project",
+      "date": "2025-08-17T21:53:13.819Z",
+      "tags": [
+        "blog",
+        "like",
+        "likes",
+        "memories",
+        "memory",
+        "ml",
+        "post",
+        "posts",
+        "projects"
+      ],
+      "displayUrl": null,
+      "image": "/Images/hi.jpeg",
+      "description": "Tiny description for the card.",
+      "links": [],
+      "markdown": "![hi](/Images/hi.jpeg)\n\nThings to support: \n- Read metadata (public to actually display, URL to display URL)\n- Converts into cool-looking thing\nSections:\n- Home\n- Likes\n- Blog\nHome has location, links for meals, info, projects\nLikes just has random things I find cool (date-time stamped)\nBlog is just a blog (need metadata tag from Obsidian)\nProjects: Table of 3, with image, tags, optional links, and a brief description\n\nBlog: same setup except only 1 horizontally displaced, and optional image to the left (still same setup i.e. links / supported by Obsidian)\n\n# Hi\n$$2+2=4$$\n",
+      "vaultPath": "Personal Website Design.md",
+      "public": true,
+      "readingTime": "1 min read"
+    }
+  ]
+}
