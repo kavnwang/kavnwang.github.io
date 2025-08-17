@@ -16,7 +16,7 @@ export function generateStaticParams() {
   return items.map((i: any) => ({ slug: i.slug }));
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
+export default function LegacyBlogPostPage({ params }: { params: { slug: string } }) {
   const item = getBySlug('blog', params.slug);
   if (!item) return notFound();
   return (

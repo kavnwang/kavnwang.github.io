@@ -3,9 +3,9 @@ import { getIndex } from '@/lib/content';
 import { pathForItem } from '@/lib/paths';
 import { Metadata } from 'next';
 
-export const metadata: Metadata = { title: 'Posts' };
+export const metadata: Metadata = { title: 'Posts (moved)' };
 
-export default function BlogIndex() {
+export default function LegacyPostsIndex() {
   const idx = getIndex();
   const items = (idx.items || [])
     .filter(i => i.public && (i.tags || []).some(t => t.toLowerCase() === 'post'))
@@ -13,12 +13,12 @@ export default function BlogIndex() {
 
   return (
     <div>
-      <h1>Posts</h1>
+      <h1>Posts (moved)</h1>
       <ul style={{ listStyle: 'none', padding: 0 }}>
         {items.map(i => (
           <li key={i.id} style={{ margin: '0.75rem 0' }}>
             <div>
-              <Link href={pathForItem(i) as any}>
+              <Link href={`/posts/${i.slug}` as any}>
                 {i.title}
               </Link>
             </div>
