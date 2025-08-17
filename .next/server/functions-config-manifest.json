@@ -1,1 +1,1 @@
-{"version":1,"functions":{"/[...sections]":{},"/likes":{},"/blog/[slug]":{},"/blog":{}}}
+{"version":1,"functions":{"/blog":{},"/[...sections]":{},"/likes":{},"/blog/[slug]":{}}}
