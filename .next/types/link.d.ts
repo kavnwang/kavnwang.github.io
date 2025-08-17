@@ -30,13 +30,11 @@ declare namespace __next_route_internal_types__ {
 
   type StaticRoutes = 
     | `/`
-    | `/blog`
-    | `/posts`
     | `/likes`
+    | `/posts`
   type DynamicRoutes<T extends string = string> = 
-    | `/posts/${SafeSlug<T>}`
-    | `/blog/${SafeSlug<T>}`
     | `/${CatchAllSlug<T>}`
+    | `/posts/${SafeSlug<T>}`
 
   type RouteImpl<T> = 
     | StaticRoutes

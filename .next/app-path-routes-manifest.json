@@ -1,1 +1,1 @@
-{"/_not-found/page":"/_not-found","/page":"/","/posts/[slug]/page":"/posts/[slug]","/blog/[slug]/page":"/blog/[slug]","/[...sections]/page":"/[...sections]","/blog/page":"/blog","/posts/page":"/posts","/likes/page":"/likes"}
+{"/page":"/","/_not-found/page":"/_not-found","/likes/page":"/likes","/[...sections]/page":"/[...sections]","/posts/[slug]/page":"/posts/[slug]","/posts/page":"/posts"}
