@@ -44,13 +44,13 @@ jobs:
 
       - name: Build static site (user/org site)
         if: endsWith(github.event.repository.name, '.github.io')
-        run: npm run build
+        run: npx next build
 
       - name: Build static site (project site)
         if: ${{ !endsWith(github.event.repository.name, '.github.io') }}
         env:
           NEXT_PUBLIC_BASE_PATH: ${{ github.event.repository.name }}
-        run: npm run build
+        run: npx next build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
