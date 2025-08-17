@@ -135,6 +135,20 @@ function parseVaultArgs() {
 async function buildIndex() {
   const sectionTags = config.sectionTags || { blog: ['blog'], likes: ['likes'], projects: ['projects'] };
   const allItems = [];
+  // Load previous index and manifest for incremental rebuilds
+  const prevIndexPath = path.join(process.cwd(), 'data', 'content.json');
+  const prevManifestPath = path.join(process.cwd(), 'data', 'content.manifest.json');
+  let prevIndex = null;
+  let prevManifest = {};
+  try { prevIndex = JSON.parse(fs.readFileSync(prevIndexPath, 'utf8')); } catch {}
+  try { prevManifest = JSON.parse(fs.readFileSync(prevManifestPath, 'utf8')); } catch {}
+  const prevByVaultPath = new Map();
+  if (prevIndex?.items) {
+    for (const it of prevIndex.items) {
+      if (it?.vaultPath) prevByVaultPath.set(it.vaultPath, it);
+    }
+  }
+  const nextManifest = {};
   const cliVaults = parseVaultArgs();
   const vaults = (cliVaults.length ? cliVaults : (config.vaultPaths || [])).filter(Boolean);
   const ignore = (config.ignorePatterns || []);
@@ -152,12 +166,30 @@ async function buildIndex() {
     let included = 0;
     let skippedNotPublic = 0;
     let parseFailed = 0;
+    let reused = 0;
 
     for (const file of entries) {
       scanned += 1;
       try {
-        const raw = fs.readFileSync(file, 'utf8');
         const stats = fs.statSync(file);
+        const relFromVault = path.relative(vaultPath, file).replace(/\\/g, '/');
+        const manifestKey = `${vaultPath}::${relFromVault}`.replace(/\\/g, '/');
+        nextManifest[manifestKey] = { mtimeMs: stats.mtimeMs, size: stats.size };
+        const was = prevManifest[manifestKey];
+        const isUnchanged = was && was.mtimeMs === stats.mtimeMs && was.size === stats.size;
+
+        if (isUnchanged) {
+          const prev = prevByVaultPath.get(relFromVault);
+          if (prev) {
+            allItems.push(prev);
+            included += 1;
+            reused += 1;
+            continue;
+          }
+          // Fall through to re-parse if we don't have a previous item
+        }
+
+        const raw = fs.readFileSync(file, 'utf8');
         const { data: fm, content } = matter(raw);
         const isPublic = config.requirePublicFlag ? fm?.public === true : fm?.public !== false;
         if (!isPublic) { skippedNotPublic += 1; continue; }
@@ -191,7 +223,7 @@ async function buildIndex() {
           description,
           links,
           markdown: transformedMarkdown,
-          vaultPath: path.relative(vaultPath, file).replace(/\\/g, '/'),
+          vaultPath: relFromVault,
           public: true,
           readingTime: rt?.text || null
         };
@@ -202,7 +234,7 @@ async function buildIndex() {
         console.warn('Failed to parse', file, e?.message);
       }
     }
-    console.log(`[vault] ${vaultPath} stats → scanned:${scanned} included:${included} skippedNotPublic:${skippedNotPublic} parseFailed:${parseFailed}`);
+    console.log(`[vault] ${vaultPath} stats → scanned:${scanned} included:${included} reused:${reused} skippedNotPublic:${skippedNotPublic} parseFailed:${parseFailed}`);
   }
 
   const tagCounts = {};
@@ -214,6 +246,9 @@ async function buildIndex() {
   fs.mkdirSync(path.dirname(outPath), { recursive: true });
   fs.writeFileSync(outPath, JSON.stringify(output, null, 2), 'utf8');
   console.log(`Wrote ${output.items.length} items to data/content.json at ${output.generatedAt}`);
+  // Update manifest for incremental builds
+  const manPath = path.join(process.cwd(), 'data', 'content.manifest.json');
+  fs.writeFileSync(manPath, JSON.stringify(nextManifest, null, 2), 'utf8');
   if (output.items.length === 0) {
     console.warn('No items were included. Ensure your notes have frontmatter with `public: true` and that --vault points to the correct Obsidian vault.');
   }
@@ -225,9 +260,30 @@ if (watchMode) {
   const cliVaults = parseVaultArgs();
   const vaults = (cliVaults.length ? cliVaults : (config.vaultPaths || [])).filter(Boolean);
   const ignore = (config.ignorePatterns || []);
-  const chok = chokidar.watch(vaults.map(v => path.join(v, '**/*.md')), { ignored: ignore });
-  const rebuild = () => { buildIndex().catch(err => console.error(err)); };
-  chok.on('add', rebuild).on('change', rebuild).on('unlink', rebuild);
+  const watcher = chokidar.watch(vaults.map(v => path.join(v, '**/*.md')), { ignored: ignore, ignoreInitial: true });
+
+  let building = false;
+  let pending = false;
+  let debounceTimer = null;
+
+  const scheduleBuild = () => {
+    if (debounceTimer) clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(async () => {
+      if (building) { pending = true; return; }
+      building = true;
+      try {
+        await buildIndex();
+      } catch (err) {
+        console.error(err);
+      } finally {
+        building = false;
+        if (pending) { pending = false; scheduleBuild(); }
+      }
+    }, 200);
+  };
+
+  watcher.on('add', scheduleBuild).on('change', scheduleBuild).on('unlink', scheduleBuild);
+  // Run one initial build
   buildIndex().catch(console.error);
 } else {
   buildIndex().catch(err => { console.error(err); process.exit(1); });

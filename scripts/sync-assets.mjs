@@ -5,9 +5,15 @@ import config from '../site.config.mjs';
 
 const IMAGE_EXT = ['png','jpg','jpeg','gif','webp','svg','bmp','tiff','avif'];
 
-async function copyFileEnsureDir(src, dest) {
+async function copyFileEnsureDirIfChanged(src, dest) {
   await fs.promises.mkdir(path.dirname(dest), { recursive: true });
+  try {
+    const [s, d] = await Promise.all([fs.promises.stat(src), fs.promises.stat(dest)]);
+    if (d.mtimeMs === s.mtimeMs && d.size === s.size) return false;
+  } catch {}
   await fs.promises.copyFile(src, dest);
+  try { const s = await fs.promises.stat(src); await fs.promises.utimes(dest, s.atime, s.mtime); } catch {}
+  return true;
 }
 
 function parseVaultArgs() {
@@ -41,8 +47,8 @@ async function syncVaultAssets() {
       const rel = path.relative(vaultPath, abs).replace(/\\/g, '/');
       const out = path.join(process.cwd(), 'public', rel).replace(/\\/g, '/');
       try {
-        await copyFileEnsureDir(abs, out);
-        copied += 1;
+        const didCopy = await copyFileEnsureDirIfChanged(abs, out);
+        if (didCopy) copied += 1;
       } catch (e) {
         console.warn('Failed to copy asset', abs, '->', out, e?.message);
       }

@@ -10,7 +10,7 @@ export default function TagFilter({ allTags }: { allTags: string[] }) {
     if (selected.has(tag)) selected.delete(tag); else selected.add(tag);
     const next = Array.from(selected).join(',');
     const q = next ? `?tags=${encodeURIComponent(next)}` : '';
-    router.push(`${window.location.pathname}${q}`);
+    router.push(`${window.location.pathname}${q}` as any);
   }
 
   return (

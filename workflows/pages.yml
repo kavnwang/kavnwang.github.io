@@ -42,7 +42,12 @@ jobs:
         env:
           OBSIDIAN_VAULT_PATH: ${{ secrets.OBSIDIAN_VAULT_PATH }}
 
-      - name: Build static site
+      - name: Build static site (user/org site)
+        if: endsWith(github.event.repository.name, '.github.io')
+        run: npm run build
+
+      - name: Build static site (project site)
+        if: ${{ !endsWith(github.event.repository.name, '.github.io') }}
         env:
           NEXT_PUBLIC_BASE_PATH: ${{ github.event.repository.name }}
         run: npm run build

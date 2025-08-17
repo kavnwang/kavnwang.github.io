@@ -8,7 +8,8 @@
     "watch-content": "node scripts/build-content.mjs --watch",
     "sync-assets": "node scripts/sync-assets.mjs",
     "prepare-content": "node scripts/prepare-content.mjs",
-    "dev": "npm run prepare-content --silent -- && next dev",
+    "dev": "npm run watch-content --silent & next dev",
+    "dev:clean": "rm -rf .next && next dev",
     "build": "npm run prepare-content --silent -- && next build",
     "start": "next start"
   },

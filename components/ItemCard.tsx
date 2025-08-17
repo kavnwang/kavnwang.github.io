@@ -5,7 +5,7 @@ export default function ItemCard({ item, hrefPrefix }: { item: ContentItem; href
   return (
     <article className="card">
       <header>
-        <h3><Link href={`${hrefPrefix}/${item.slug}`}>{item.title}</Link></h3>
+        <h3><Link href={`${hrefPrefix}/${item.slug}` as any}>{item.title}</Link></h3>
         <small>{new Date(item.date).toLocaleDateString()} {item.readingTime ? `· ${item.readingTime}` : null}</small>
       </header>
       {item.description && <p>{item.description}</p>}
