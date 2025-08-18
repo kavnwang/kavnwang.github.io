@@ -18,11 +18,13 @@ export default function HomePage() {
 
   return (
     <div>
-      <h1>Home</h1>
-      <p>This is a starter scaffold. It reads your local Obsidian vault, indexes public notes, and renders them.</p>
+      <h1>Hey, I'm Kevin!</h1>
+      <p>
+        I study computer science at MIT and research applied interpretability at <a href="https://www.tilderesearch.com/">Tilde</a>. I'm also learning about astrophysics, ML performance engineering, molecular biology, topology, macroeconomic policy, Chinese literature, and educational technology. Above all, I aspire to be authentic, earnest, and compassionate, and to do my best to help everyone become the best version of themselves. I currently live in Cambridge, MA.
+      </p>
+      <p>I'd love to meet you, so please <a href="mailto:kevinhw@mit.edu">email</a> or <a href="https://calendly.com/kevinhw/intro-call">call</a> if you'd like to chat :) </p>
 
       <section>
-        <h2>Projects</h2>
         <ProjectsSection items={projects} />
       </section>
     </div>

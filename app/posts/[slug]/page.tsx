@@ -1,4 +1,5 @@
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
+import type { Metadata } from 'next';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
@@ -16,9 +17,16 @@ export function generateStaticParams() {
   return items.map((i: any) => ({ slug: i.slug }));
 }
 
+export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+  const item = getBySlug('blog', params.slug);
+  if (!item) return { title: 'Kevin Wang' };
+  return { title: item.title };
+}
+
 export default function PostPage({ params }: { params: { slug: string } }) {
   const item = getBySlug('blog', params.slug);
   if (!item) return notFound();
+  if (item.link) redirect(item.link);
   return (
     <article>
       <h1>{item.title}</h1>

@@ -1,8 +1,70 @@
 @import "katex/dist/katex.min.css";
 * { box-sizing: border-box; }
-body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; }
-a { text-decoration: none; }
+body { font-family: "Untitled Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; font-size: 17px; letter-spacing: 0.02em; line-height: 1.25; }
+h1 { font-family: Georgia, "Times New Roman", Times, serif; font-weight: 400; letter-spacing: normal; }
+h2, h3, h4, h5, h6 { font-family: Georgia, "Times New Roman", Times, serif; font-weight: 400; letter-spacing: normal; }
+a, a:visited, a:hover, a:active { color: inherit; text-decoration: none; }
+a { border-bottom: 0.5px dotted currentColor; }
+a:hover { border-bottom-width: 1px; }
+.card-link { border-bottom: none; }
+.card-link:hover { border-bottom: none; }
+/* Ensure form controls use body font/spacing */
+button, input, select, textarea { font: inherit; letter-spacing: inherit; }
 code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 .tag { display: inline-block; padding: 2px 6px; border: 1px solid #ddd; border-radius: 999px; font-size: 12px; margin-right: 6px; }
-.card { border: 1px solid #eee; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; }
+.card { border: 1px solid #eee; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; transition: box-shadow 120ms ease, border-color 120ms ease; }
+.card-link:hover .card { border-color: rgba(0,0,0,0.18); box-shadow: 0 0 0 3px rgba(0,0,0,0.06); }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+/* Nav bar styling (left-aligned, no background, solid underline on hover, bold when active) */
+.site-nav { font-size: 1.1rem; letter-spacing: 0.02em; }
+.site-nav a { display: inline-block; padding: 4px 2px; margin-right: 2.25rem; border-bottom: 1px solid transparent; font-weight: 400; }
+.site-nav a:hover { border-bottom-color: currentColor; text-decoration: none; }
+.site-nav .nav-active { border-bottom-color: currentColor; }
+
+/* Table of contents */
+.toc { position: fixed; right: 1.25rem; top: 6.5rem; max-height: calc(100vh - 3rem); overflow: auto; width: 260px; }
+.toc .toc-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: #666; margin-bottom: 0.5rem; }
+.toc ul { list-style: none; padding: 0; margin: 0; }
+.toc li { margin: 0.25rem 0; font-size: 0.75em; }
+.toc li[data-level="3"] { margin-left: 0.85rem; font-size: 0.78em; }
+.toc a, .toc a:visited, .toc a:hover, .toc a:active { border-bottom: none; text-decoration: none; }
+
+/* Footer icon row */
+footer img { filter: grayscale(100%); width: 16px; height: 16px; display: inline-block; }
+footer a { border-bottom: none !important; }
+footer .copyright { text-align: center; font-size: 10px; color: #666; margin-top: 0.25rem; }
+
+/* Site-wide very light mountains and sun background */
+.site-bg { position: fixed; left: 0; right: 0; bottom: 0; height: 340px; z-index: -1; pointer-events: none; }
+.site-bg svg { display: block; width: 100%; height: 100%; }
+
+/* Extremely subtle overall fade to keep it very very light */
+.site-bg { opacity: 1; }
+
+/* Animate the sun gradient very slowly between pastel hues */
+@keyframes sunHueShift {
+  0% {
+    stop-color: #ffe7b3; /* light orange-yellow */
+  }
+  50% {
+    stop-color: #d7e0ff; /* light periwinkle */
+  }
+  100% {
+    stop-color: #ffe7b3;
+  }
+}
+
+@keyframes sunHueShift2 {
+  0% {
+    stop-color: #ffd7c2; /* peach */
+  }
+  50% {
+    stop-color: #e6d7ff; /* light blue-purple */
+  }
+  100% {
+    stop-color: #ffd7c2;
+  }
+}
+
+.sun-stop-1 { animation: sunHueShift 120s ease-in-out infinite; }
+.sun-stop-2 { animation: sunHueShift2 120s ease-in-out infinite; }

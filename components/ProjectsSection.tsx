@@ -45,7 +45,7 @@ export default function ProjectsSection({ items }: ProjectsSectionProps) {
             type="button"
             onClick={() => setActiveKey(f.key)}
             style={{
-              padding: '6px 10px',
+              padding: '8px 10px',
               borderRadius: 999,
               border: '1px solid #ddd',
               background: activeKey === f.key ? '#000' : '#fff',

@@ -13,6 +13,7 @@ export interface ContentItem {
   displayUrl?: string | null;
   image?: string | null;
   description?: string | null;
+  link?: string | null;
   links?: LinkItem[];
   markdown?: string;
   vaultPath: string;
