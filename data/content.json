@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-08-18T02:38:16.432Z",
-  "total": 2,
+  "generatedAt": "2025-08-18T13:00:22.302Z",
+  "total": 1,
   "tags": [
     "blog",
     "like",
@@ -14,43 +14,14 @@
   ],
   "items": [
     {
-      "id": "L1VzZXJzL2tldmlud2FuZy9PYnNpZGlhbi9QZXJzb25hbCBXZWJzaXRlIERlc2lnbiAxLm1k",
-      "slug": "neat-project",
-      "section": "blog",
-      "sections": [
-        "ml"
-      ],
-      "title": "Neat Project",
-      "date": "2025-08-18T00:44:48.837Z",
-      "tags": [
-        "blog",
-        "like",
-        "likes",
-        "memories",
-        "memory",
-        "ml",
-        "post",
-        "posts",
-        "projects"
-      ],
-      "displayUrl": null,
-      "image": "/Images/hi.jpeg",
-      "description": "Tiny description for the card.",
-      "links": [],
-      "markdown": "![hi](/Images/hi.jpeg)\n\nThings to support: \n- Read metadata (public to actually display, URL to display URL)\n- Converts into cool-looking thing\nSections:\n- Home\n- Likes\n- Blog\nHome has location, links for meals, info, projects\nLikes just has random things I find cool (date-time stamped)\nBlog is just a blog (need metadata tag from Obsidian)\nProjects: Table of 3, with image, tags, optional links, and a brief description\n\nBlog: same setup except only 1 horizontally displaced, and optional image to the left (still same setup i.e. links / supported by Obsidian)\n\n# Hi\n$$2+2=4$$\n",
-      "vaultPath": "Personal Website Design 1.md",
-      "public": true,
-      "readingTime": "1 min read"
-    },
-    {
       "id": "L1VzZXJzL2tldmlud2FuZy9PYnNpZGlhbi9QZXJzb25hbCBXZWJzaXRlIERlc2lnbi5tZA==",
-      "slug": "neat-project",
+      "slug": "things-to-do",
       "section": "blog",
       "sections": [
         "ml"
       ],
-      "title": "Neat Project",
-      "date": "2025-08-18T00:39:01.893Z",
+      "title": "Things To Do",
+      "date": "2025-08-18T12:58:32.954Z",
       "tags": [
         "blog",
         "like",
@@ -66,10 +37,10 @@
       "image": "/Images/hi.jpeg",
       "description": "Tiny description for the card.",
       "links": [],
-      "markdown": "![hi](/Images/hi.jpeg)\n\nThings to support: \n- Read metadata (public to actually display, URL to display URL)\n- Converts into cool-looking thing\nSections:\n- Home\n- Likes\n- Blog\nHome has location, links for meals, info, projects\nLikes just has random things I find cool (date-time stamped)\nBlog is just a blog (need metadata tag from Obsidian)\nProjects: Table of 3, with image, tags, optional links, and a brief description\n\nBlog: same setup except only 1 horizontally displaced, and optional image to the left (still same setup i.e. links / supported by Obsidian)\n\n# Hi\n$$2+2=4$$\n",
+      "markdown": "![hi](/Images/hi.jpeg)\n\n# This is My Blog! Welcome! \n\nThings to Support:\n\n- Redirect links to work\n- night/dark mode with birds/comets\n- Actually fill in past project content\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "vaultPath": "Personal Website Design.md",
       "public": true,
-      "readingTime": "1 min read"
+      "readingTime": "2 min read"
     }
   ]
 }

@@ -38,27 +38,20 @@ export default function ProjectsSection({ items }: ProjectsSectionProps) {
 
   return (
     <div>
-      <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '0.75rem' }}>
+      <div className="pill-group" style={{ marginBottom: '0.75rem' }}>
         {FILTERS.map(f => (
           <button
             key={f.key}
             type="button"
             onClick={() => setActiveKey(f.key)}
-            style={{
-              padding: '8px 10px',
-              borderRadius: 999,
-              border: '1px solid #ddd',
-              background: activeKey === f.key ? '#000' : '#fff',
-              color: activeKey === f.key ? '#fff' : '#000',
-              cursor: 'pointer'
-            }}
+            className={`pill${activeKey === f.key ? ' pill-active' : ''}`}
           >
             {f.label}
           </button>
         ))}
       </div>
 
-      <div className="grid">
+      <div className="grid projects-grid">
         {filtered.map(p => <ProjectCard key={p.id} item={p} />)}
       </div>
       {filtered.length === 0 && <p>No projects yet.</p>}

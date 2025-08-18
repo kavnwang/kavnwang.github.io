@@ -13,20 +13,19 @@ export default function LikesIndex() {
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return (
-    <div>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', alignItems: 'center' }}>
-        <h1 style={{ margin: '0.5rem 0 0' }}>Some things I like :)</h1>
-        <div style={{ justifySelf: 'end' }}>
+    <div style={{ position: 'relative' }}>
+      <article>
+        <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
+          <h1 style={{ fontSize: '2.75rem', lineHeight: 1.1 }}>Some things I like :)</h1>
           <Suspense fallback={<span aria-hidden="true" style={{ display: 'inline-block', width: 24, height: 24 }} />}> 
             <StarToggle />
           </Suspense>
         </div>
-      </div>
-      <div style={{ marginTop: '0.75rem' }}>
+        <div style={{ margin: '0.5rem 0' }} />
         <Suspense fallback={<div />}> 
           <LikesClient items={items} />
         </Suspense>
-      </div>
+      </article>
     </div>
   );
 }
