@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 import { getIndex } from '@/lib/content';
 import StarToggle from './StarToggle';
 import LikesClient from './LikesClient';
@@ -16,11 +17,15 @@ export default function LikesIndex() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', alignItems: 'center' }}>
         <h1 style={{ margin: '0.5rem 0 0' }}>Some things I like :)</h1>
         <div style={{ justifySelf: 'end' }}>
-          <StarToggle />
+          <Suspense fallback={<span aria-hidden="true" style={{ display: 'inline-block', width: 24, height: 24 }} />}> 
+            <StarToggle />
+          </Suspense>
         </div>
       </div>
       <div style={{ marginTop: '0.75rem' }}>
-        <LikesClient items={items} />
+        <Suspense fallback={<div />}> 
+          <LikesClient items={items} />
+        </Suspense>
       </div>
     </div>
   );
