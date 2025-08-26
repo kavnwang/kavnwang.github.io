@@ -44,16 +44,10 @@ export default function SectionsPage({ params }: { params: { sections: string[] 
 		.replace(/\s+/g, '-')
 		.replace(/-+/g, '-');
 
-	// Extract ATX (#+) and Setext (===, ---) headings
+	// Extract ATX (#+) headings only (avoid false positives from setext/--- separators)
 	const headings: { level: number; text: string; id: string }[] = [];
 	for (const m of markdown.matchAll(/^\s{0,3}(#{1,3})\s+(.+)$/gm)) {
 		headings.push({ level: m[1].length, text: m[2].trim(), id: slugify(m[2]) });
-	}
-	for (const m of markdown.matchAll(/^([^\n]+)\n=+\s*$/gm)) {
-		headings.push({ level: 1, text: m[1].trim(), id: slugify(m[1]) });
-	}
-	for (const m of markdown.matchAll(/^([^\n]+)\n-+\s*$/gm)) {
-		headings.push({ level: 2, text: m[1].trim(), id: slugify(m[1]) });
 	}
 
 	return (
@@ -65,6 +59,7 @@ export default function SectionsPage({ params }: { params: { sections: string[] 
 					remarkPlugins={[remarkMath, remarkGfm]}
 					rehypePlugins={[rehypeRaw, rehypeKatex]}
 					components={{
+						hr: () => null,
 						h1: ({ children }) => {
 							const text = String(children as any);
 							const id = slugify(text);
