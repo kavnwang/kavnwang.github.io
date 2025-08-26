@@ -8,6 +8,7 @@ export default function ProjectCard({ item }: { item: ContentItem }) {
     if (!src) return '';
     if (src.startsWith('http://') || src.startsWith('https://') || src.startsWith('mailto:')) return src;
     const absolute = src.startsWith('/') ? src : `/${src}`;
+    // Keep any cache-busting query param passed through from content index
     return withBasePath(absolute);
   };
   const firstImageFromMarkdown = (md?: string | null): string | null => {

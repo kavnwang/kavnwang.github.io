@@ -25,7 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="page-content" style={{ flex: 1, padding: '1rem 0 3rem' }}>
           {children}
         </main>
-        <footer style={{ borderTop: 'none', padding: '2.5rem 0', marginTop: '3rem', position: 'relative' }}>
+        <footer style={{ borderTop: 'none', padding: '0 0 1rem', marginTop: '3rem', position: 'relative', minHeight: 294, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
           <div className="site-bg" aria-hidden="true">
             <svg viewBox="0 0 1000 400" preserveAspectRatio="none">
             <defs>

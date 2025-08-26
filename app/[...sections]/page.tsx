@@ -62,7 +62,7 @@ export default function SectionsPage({ params }: { params: { sections: string[] 
 				<h1 style={{ fontSize: '2.75rem', lineHeight: 1.1 }}>{item.title}</h1>
 				<div style={{ margin: '0.5rem 0' }}>{(item.tags || []).map(t => <span key={t} className="tag">#{t}</span>)}</div>
 				<ReactMarkdown
-					remarkPlugins={[remarkGfm, remarkMath]}
+					remarkPlugins={[remarkMath, remarkGfm]}
 					rehypePlugins={[rehypeRaw, rehypeKatex]}
 					components={{
 						h1: ({ children }) => {

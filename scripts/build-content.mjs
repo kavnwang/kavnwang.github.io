@@ -100,7 +100,12 @@ function normalizeResourcePath(rawInput, fileAbs, vaultRoot) {
   for (const rel of candidatesRel) {
     const abs = path.join(vaultRoot, rel);
     try {
-      if (fs.existsSync(abs)) return `/${toPosix(rel)}`;
+      if (fs.existsSync(abs)) {
+        // Append a cache-busting query param using file mtime so updates propagate
+        const stats = fs.statSync(abs);
+        const version = stats?.mtimeMs ? `?v=${Math.floor(stats.mtimeMs)}` : '';
+        return `/${toPosix(rel)}${version}`;
+      }
     } catch {}
   }
   return `/${asGiven}`;
@@ -124,6 +129,21 @@ function transformObsidianEmbeds(content, fileAbs, vaultRoot) {
     const alt = (altPart || path.basename(target, path.extname(target))).trim();
     return `![${alt}](${sitePath})`;
   });
+}
+
+function rewriteMarkdownImageLinks(content, fileAbs, vaultRoot) {
+  let out = String(content || '');
+  // Markdown images: ![alt](url "title")
+  out = out.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g, (m, alt, url) => {
+    const sitePath = normalizeResourcePath(url, fileAbs, vaultRoot);
+    return `![${alt}](${sitePath})`;
+  });
+  // HTML <img src="..."> tags
+  out = out.replace(/<img([^>]*?)src=["']([^"']+)["']([^>]*?)>/gi, (m, pre, src, post) => {
+    const sitePath = normalizeResourcePath(src, fileAbs, vaultRoot);
+    return `<img${pre}src="${sitePath}"${post}>`;
+  });
+  return out;
 }
 
 function parseVaultArgs() {
@@ -208,7 +228,8 @@ async function buildIndex() {
         const description = fm?.description || null;
         const links = normalizeLinks(fm);
         const rt = readingTime(content || '');
-        const transformedMarkdown = transformObsidianEmbeds(content, file, vaultPath);
+        const mdWithEmbeds = transformObsidianEmbeds(content, file, vaultPath);
+        const transformedMarkdown = rewriteMarkdownImageLinks(mdWithEmbeds, file, vaultPath);
 
         const item = {
           id: Buffer.from(file).toString('base64'),
