@@ -79,7 +79,7 @@ code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospac
 .pill.pill-active { background: rgba(255,255,255,0.85); color: #111; border-color: rgba(255, 141, 184, 0.36); box-shadow: 0 0 0 3px rgba(255, 141, 184, 0.12), 0 2px 8px rgba(0,0,0,0.04); font-weight: 600; }
 
 /* Table of contents */
-.toc { position: fixed; right: 0.5rem; top: 6.5rem; max-height: calc(100vh - 3rem); overflow: auto; width: 260px; }
+.toc { position: fixed; right: -32px; top: 6.5rem; max-height: calc(100vh - 3rem); overflow: auto; width: 260px; }
 .toc .toc-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: #666; margin-bottom: 0.5rem; }
 .toc ul { list-style: none; padding: 0; margin: 0; }
 .toc li { margin: 0.25rem 0; font-size: 0.75em; }
@@ -100,4 +100,26 @@ footer .copyright { text-align: center; font-size: 10px; color: #333; margin-top
 
 /* Keep the sun stops static (always orange-yellow/peach) */
 .sun-stop-1, .sun-stop-2 { animation: none; }
+
+/* Responsive layout adjustments */
+@media (max-width: 1200px) {
+  .page-content { margin-inline: max(24px, 10vw); }
+}
+@media (max-width: 900px) {
+  .page-content { margin-inline: max(20px, 6vw); }
+}
+/* Push the TOC further right on wide screens */
+@media (min-width: 1200px) {
+  .toc { right: -48px; }
+}
+/* Hide TOC completely on narrower screens */
+@media (max-width: 1199px) {
+  .toc { display: none; }
+}
+@media (max-width: 700px) {
+  .page-content { margin-inline: 16px; }
+  .site-header { margin-top: clamp(16px, 6vh, 44px); }
+  .grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+  .tag { font-size: 11px; padding: 3px 8px; }
+}
 

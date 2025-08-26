@@ -38,7 +38,7 @@ export default function ProjectsSection({ items }: ProjectsSectionProps) {
 
   return (
     <div>
-      <div className="pill-group" style={{ marginBottom: '0.75rem' }}>
+      <div className="pill-group" style={{ marginBottom: '2rem' }}>
         {FILTERS.map(f => (
           <button
             key={f.key}
