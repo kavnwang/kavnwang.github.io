@@ -1,9 +1,9 @@
 {
   "pages": {
-    "/page": [
+    "/likes/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+      "static/chunks/app/likes/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -16,15 +16,15 @@
       "static/chunks/main-app.js",
       "static/chunks/app/not-found.js"
     ],
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
+    ],
     "/[...sections]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/[...sections]/page.js"
-    ],
-    "/likes/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/likes/page.js"
     ],
     "/posts/page": [
       "static/chunks/webpack.js",
