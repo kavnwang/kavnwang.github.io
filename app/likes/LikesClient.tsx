@@ -46,7 +46,7 @@ export default function LikesClient({ items }: { items: ContentItem[] }) {
         const rightImageSrc = rightImage ? normalizeSrc(rightImage) : '';
         return (
           <div key={i.id} style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start', margin: '1rem 0' }}>
-            <div style={{ flex: 2 }}>
+            <div style={{ flex: 2, fontSize: '0.85rem', lineHeight: 1.4 }}>
               <small>{new Date(i.date).toLocaleDateString()}</small>
               {i.description ? (
                 <p style={{ margin: '0.25rem 0 0' }}>{i.description}</p>
