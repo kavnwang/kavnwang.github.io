@@ -7,6 +7,7 @@ import rehypeRaw from 'rehype-raw';
 import rehypeKatex from 'rehype-katex';
 import { getIndex, getByPath } from '@/lib/content';
 import { withBasePath } from '@/lib/paths';
+import AutoScaleMath from '@/components/AutoScaleMath';
 
 export const dynamic = 'error';
 export const revalidate = false;
@@ -53,6 +54,7 @@ export default function SectionsPage({ params }: { params: { sections: string[] 
 	return (
 		<div style={{ position: 'relative' }}>
 			<article>
+				<AutoScaleMath />
 				<h1 style={{ fontSize: '2.75rem', lineHeight: 1.1 }}>{item.title}</h1>
 				<div style={{ margin: '0.5rem 0' }}>{(item.tags || []).map(t => <span key={t} className="tag">#{t}</span>)}</div>
 				<ReactMarkdown
