@@ -10,12 +10,18 @@ function fitAll() {
     content.style.transform = '';
     content.style.transformOrigin = 'left top';
     content.style.display = 'inline-block';
+    block.style.overflow = 'hidden';
+    block.style.width = '100%';
 
     const containerWidth = block.clientWidth;
     const contentWidth = content.scrollWidth;
     if (containerWidth > 0 && contentWidth > containerWidth) {
       const scale = Math.max(0.6, Math.min(1, containerWidth / contentWidth));
       content.style.transform = `scale(${scale})`;
+      // Adjust the container height to the scaled content to avoid inner scrollbars
+      const rect = content.getBoundingClientRect();
+      const scaledHeight = rect.height * scale;
+      block.style.height = `${scaledHeight}px`;
     }
   }
 }
