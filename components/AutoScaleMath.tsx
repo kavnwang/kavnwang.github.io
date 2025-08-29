@@ -15,13 +15,16 @@ function fitAll() {
 
     const containerWidth = block.clientWidth;
     const contentWidth = content.scrollWidth;
+    const naturalHeight = content.getBoundingClientRect().height; // before scaling
+
     if (containerWidth > 0 && contentWidth > containerWidth) {
-      const scale = Math.max(0.6, Math.min(1, containerWidth / contentWidth));
+      const scale = Math.max(0.5, Math.min(1, containerWidth / contentWidth));
       content.style.transform = `scale(${scale})`;
-      // Adjust the container height to the scaled content to avoid inner scrollbars
-      const rect = content.getBoundingClientRect();
-      const scaledHeight = rect.height * scale;
-      block.style.height = `${scaledHeight}px`;
+      // Set container height to scaled natural height to avoid clipping/scroll
+      block.style.height = `${naturalHeight * scale}px`;
+    } else {
+      // No scaling needed
+      block.style.height = '';
     }
   }
 }
