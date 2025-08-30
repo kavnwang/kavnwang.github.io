@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { withBasePath } from '@/lib/paths';
+import ThemeToggle from '@/components/ThemeToggle';
 
 export default function SiteNav() {
   const pathname = usePathname() || '';
@@ -14,10 +15,13 @@ export default function SiteNav() {
   };
 
   return (
-    <nav className="site-nav">
+    <nav className="site-nav" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
       <Link href="/" className={isActive('/') ? 'nav-active' : undefined}>Home</Link>
       <Link href="/posts" className={isActive('/posts') ? 'nav-active' : undefined}>Posts</Link>
       <Link href="/likes" className={isActive('/likes') ? 'nav-active' : undefined}>Likes</Link>
+      <div style={{ marginLeft: 'auto' }}>
+        <ThemeToggle />
+      </div>
     </nav>
   );
 }

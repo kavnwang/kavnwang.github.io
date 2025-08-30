@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { withBasePath } from '@/lib/paths';
 import SiteNav from '@/components/SiteNav';
+import ShootingStars from '@/components/ShootingStars';
 
 export const metadata: Metadata = {
   title: 'Kevin Wang',
@@ -17,6 +18,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+        <script
+          // Ensure dark class is applied before paint to avoid flash
+          dangerouslySetInnerHTML={{
+            __html:
+              "!function(){try{var d=localStorage.getItem('theme:dark');var isDark=(d==='true')||(d===null&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches);if(isDark)document.body.classList.add('dark');}catch(e){}}();",
+          }}
+        />
+        <ShootingStars />
         <header className="site-header">
           <div className="page-content">
             <SiteNav />
@@ -75,6 +84,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </svg>
           </div>
           <div className="page-content" style={{ display: 'flex', justifyContent: 'center', gap: '1.25rem', alignItems: 'center' }}>
+            <a href="https://x.com/kavnwang" target="_blank" rel="noopener noreferrer" title="X"><img src={withBasePath('/icons/x.svg')} alt="X" style={{ width: 20, height: 20 }} /></a>
             <a href="mailto:kevinhw@mit.edu" title="Email"><img src={withBasePath('/icons/gmail.svg')} alt="Email" style={{ width: 20, height: 20 }} /></a>
             <a href="https://github.com/kavnwang" target="_blank" rel="noopener noreferrer" title="GitHub"><img src={withBasePath('/icons/github.svg')} alt="GitHub" style={{ width: 20, height: 20 }} /></a>
             <a href="https://www.linkedin.com/in/kevinhaoyuwang" target="_blank" rel="noopener noreferrer" title="LinkedIn"><img src={withBasePath('/icons/linkedin.svg')} alt="LinkedIn" style={{ width: 20, height: 20 }} /></a>

@@ -20,8 +20,8 @@ export default function PostsIndex() {
           <li key={i.id} style={{ margin: '1.25rem 0' }}>
             <div>
               <h2 style={{ margin: '0 0 0.25rem', fontSize: '1.6rem', fontFamily: '"Untitled Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif' }}>
-                {i.link ? (
-                  <a href={i.link} target="_blank" rel="noopener noreferrer">{i.title}</a>
+                {(i as any).displayUrl || (i as any).link || ((i as any).links && (i as any).links.length > 0) ? (
+                  <a href={(i as any).displayUrl || (i as any).link || (i as any).links[0]?.href} target="_blank" rel="noopener noreferrer">{i.title}</a>
                 ) : (
                   <Link href={pathForItem(i) as any}>{i.title}</Link>
                 )}

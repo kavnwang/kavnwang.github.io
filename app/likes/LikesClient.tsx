@@ -62,7 +62,7 @@ export default function LikesClient({ items }: { items: ContentItem[] }) {
                 </div>
               )}
             </div>
-            <div style={{ flex: 1, textAlign: 'right' }}>
+            <div style={{ flex: 1, alignSelf: 'stretch', display: 'flex', alignItems: 'flex-end', justifyContent: 'flex-end' }}>
               {rightImageSrc && (
                 <img src={rightImageSrc} alt="" style={{ maxWidth: '100%', height: 'auto' }} />
               )}

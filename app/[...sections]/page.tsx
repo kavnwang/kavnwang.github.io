@@ -51,17 +51,22 @@ export default function SectionsPage({ params }: { params: { sections: string[] 
 		headings.push({ level: m[1].length, text: m[2].trim(), id: slugify(m[2]) });
 	}
 
+	const tocItems = headings.filter(h => h.level >= 1 && h.level <= 3);
+
 	return (
 		<div style={{ position: 'relative' }}>
 			<article>
 				<AutoScaleMath />
-				<h1 style={{ fontSize: '2.75rem', lineHeight: 1.1 }}>{item.title}</h1>
+				<h1 style={{ fontSize: '2.75rem', lineHeight: 1.1, marginBottom: '0.2rem' }}>{item.title}</h1>
+				<small>
+					{new Date(item.date as any).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}
+					{item.readingTime ? ` · ${item.readingTime}` : null}
+				</small>
 				<div style={{ margin: '0.5rem 0' }}>{(item.tags || []).map(t => <span key={t} className="tag">#{t}</span>)}</div>
 				<ReactMarkdown
 					remarkPlugins={[remarkMath, remarkGfm]}
 					rehypePlugins={[rehypeRaw, rehypeKatex]}
 					components={{
-						hr: () => null,
 						h1: ({ children }) => {
 							const text = String(children as any);
 							const id = slugify(text);
@@ -85,14 +90,16 @@ export default function SectionsPage({ params }: { params: { sections: string[] 
 					{markdown}
 				</ReactMarkdown>
 			</article>
-			<aside className="toc">
-				<div className="toc-title">Table of contents</div>
-				<ul>
-					{headings.filter(h => h.level >= 1 && h.level <= 3).map(h => (
-						<li key={h.id} data-level={h.level}><a href={`#${h.id}`}>{h.text}</a></li>
-					))}
-				</ul>
-			</aside>
+			{tocItems.length >= 2 && (
+				<aside className="toc">
+					<div className="toc-title">Table of contents</div>
+					<ul>
+						{tocItems.map(h => (
+							<li key={h.id} data-level={h.level}><a href={`#${h.id}`}>{h.text}</a></li>
+						))}
+					</ul>
+				</aside>
+			)}
 		</div>
 	);
 }

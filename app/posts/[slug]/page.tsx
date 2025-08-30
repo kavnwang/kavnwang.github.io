@@ -29,8 +29,13 @@ export default function PostPage({ params }: { params: { slug: string } }) {
   if (item.link) redirect(item.link);
   return (
     <article>
-      <h1>{item.title}</h1>
-      <small>{new Date(item.date).toLocaleString()}</small>
+      <h1 style={{ marginBottom: '0.2rem' }}>{item.title}</h1>
+      <small>
+        {new Date(item.date as any).toLocaleDateString(undefined, {
+          year: 'numeric', month: 'long', day: 'numeric'
+        })}
+        {item.readingTime ? ` · ${item.readingTime}` : null}
+      </small>
       <div style={{ margin: '0.5rem 0' }}>{(item.tags || []).map(t => <span key={t} className="tag">#{t}</span>)}</div>
       <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeRaw, rehypeKatex]}>
         {item.markdown || ''}

@@ -153,6 +153,7 @@ function parseVaultArgs() {
 }
 
 async function buildIndex() {
+  const forceFull = process.argv.includes('--full');
   const sectionTags = config.sectionTags || { blog: ['blog'], likes: ['likes'], projects: ['projects'] };
   const allItems = [];
   // Load previous index and manifest for incremental rebuilds
@@ -196,7 +197,7 @@ async function buildIndex() {
         const manifestKey = `${vaultPath}::${relFromVault}`.replace(/\\/g, '/');
         nextManifest[manifestKey] = { mtimeMs: stats.mtimeMs, size: stats.size };
         const was = prevManifest[manifestKey];
-        const isUnchanged = was && was.mtimeMs === stats.mtimeMs && was.size === stats.size;
+        const isUnchanged = !forceFull && was && was.mtimeMs === stats.mtimeMs && was.size === stats.size;
 
         if (isUnchanged) {
           const prev = prevByVaultPath.get(relFromVault);
@@ -223,7 +224,8 @@ async function buildIndex() {
         const title = fm?.title || extractTitle(content, file);
         const slug = fm?.slug || slugify(title);
         const dateISO = parseDate(fm, file, stats);
-        const displayUrl = fm?.url || null;
+        // Accept multiple aliases from Obsidian frontmatter for external link
+        const displayUrl = fm?.url || fm?.href || fm?.link || null;
         const normalizedImage = normalizeImagePath(fm?.image, file, vaultPath);
         const description = fm?.description || null;
         const links = normalizeLinks(fm);

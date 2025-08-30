@@ -33,6 +33,7 @@ export default function StarToggle() {
         color: isOn ? '#FFC107' : '#000',
         padding: 0
       }}
+      className="likes-star"
     >
       ★
     </button>
