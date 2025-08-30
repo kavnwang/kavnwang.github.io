@@ -6,7 +6,9 @@ import ShootingStars from '@/components/ShootingStars';
 
 export const metadata: Metadata = {
   title: 'Kevin Wang',
-  description: 'Built from an Obsidian vault',
+  openGraph: {
+    siteName: 'Kevin Wang'
+  },
   icons: {
     icon: withBasePath('/logo.png'),
     shortcut: withBasePath('/logo.png'),
