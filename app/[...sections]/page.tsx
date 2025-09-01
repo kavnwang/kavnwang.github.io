@@ -5,7 +5,7 @@ import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeRaw from 'rehype-raw';
 import rehypeKatex from 'rehype-katex';
-import { getIndex, getByPath } from '@/lib/content';
+import { getIndex, getByPath, rewriteWikiLinks } from '@/lib/content';
 import { withBasePath } from '@/lib/paths';
 import AutoScaleMath from '@/components/AutoScaleMath';
 
@@ -15,7 +15,23 @@ export const revalidate = false;
 export function generateStaticParams() {
 	const idx = getIndex();
 	const params = (idx.items || [])
-		.map((i: any) => ({ sections: [...(Array.isArray(i.sections) && i.sections.length > 0 ? i.sections : [i.section]), i.slug] }));
+		.map((i: any) => {
+			// Calculate path parts using same logic as pathForItem
+			let parts: string[] = [];
+			if (Array.isArray(i.sections)) {
+				if (i.sections.length > 0) {
+					parts = i.sections;
+				}
+				// If sections is empty array [], use no parts (no prefix)
+			} else if (i.section === "projects") {
+				// If no sections defined and section is "projects", use no prefix
+				parts = [];
+			} else if (i.section) {
+				// For other sections, use the section as prefix
+				parts = [i.section];
+			}
+			return { sections: [...parts, i.slug] };
+		});
 	return params;
 }
 
@@ -36,7 +52,7 @@ export default function SectionsPage({ params }: { params: { sections: string[] 
 		return withBasePath(absolute);
 	};
 
-	const markdown = item.markdown || '';
+	const markdown = rewriteWikiLinks(item.markdown || '');
 
 	const slugify = (txt: string): string => String(txt)
 		.toLowerCase()
