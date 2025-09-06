@@ -6,7 +6,7 @@ import chokidar from 'chokidar';
 import config from '../site.config.mjs';
 import readingTime from 'reading-time';
 
-const IMAGE_EXTS = new Set(['png','jpg','jpeg','gif','webp','svg','bmp','tiff','avif']);
+const IMAGE_EXTS = new Set(['png','jpg','jpeg','gif','webp','svg','bmp','tiff','avif','heic']);
 
 function slugify(str) {
   return String(str || 'untitled')
@@ -78,22 +78,43 @@ function normalizeLinks(frontmatter) {
 
 function toPosix(p) { return String(p || '').replace(/\\/g, '/'); }
 
+// Strip Obsidian/desktop schemes and decode percent-encodings so Next doesn't treat them as routes
+const OBSIDIAN_SCHEME_RE = /^(app:\/\/[^/]*|app:\/|app:|file:\/\/|file:)/i;
+function stripObsidianSchemes(p) { return String(p || '').replace(OBSIDIAN_SCHEME_RE, ''); }
+function decodeMaybe(p) { try { return decodeURI(String(p)); } catch { return String(p); } }
+
 function normalizeResourcePath(rawInput, fileAbs, vaultRoot) {
   if (!rawInput) return null;
-  const raw = String(rawInput).trim();
+  // Strip schemes and decode percent encodings
+  let raw = decodeMaybe(stripObsidianSchemes(String(rawInput).trim()));
   if (/^(https?:|data:|mailto:)/i.test(raw)) return raw;
 
+  const vaultPosix = toPosix(vaultRoot);
   const fileRel = toPosix(path.relative(vaultRoot, fileAbs));
   const dirRel = toPosix(path.dirname(fileRel));
-  const asGiven = raw.startsWith('/') ? raw.slice(1) : toPosix(raw);
+
+  // Collapse absolute vault paths to vault-relative
+  let candidate = toPosix(raw);
+  if (candidate.startsWith(vaultPosix + '/')) {
+    candidate = candidate.slice(vaultPosix.length + 1);
+  } else if (candidate === vaultPosix) {
+    candidate = '';
+  }
+
+  const asGiven = candidate.startsWith('/') ? candidate.slice(1) : candidate;
 
   const candidatesRel = [];
-  if (raw.startsWith('/')) {
+  if (candidate.startsWith('/')) {
+    // Absolute-like vault path; also try common image folders as fallbacks
     candidatesRel.push(asGiven);
+    candidatesRel.push(toPosix(path.join('Images', asGiven)));
+    candidatesRel.push(toPosix(path.join('images', asGiven)));
+    candidatesRel.push(toPosix(path.join('attachments', asGiven)));
+    candidatesRel.push(toPosix(path.join('Attachments', asGiven)));
   } else {
-    candidatesRel.push(toPosix(path.join(dirRel, raw)));
-    candidatesRel.push(toPosix(path.join('Images', raw)));
-    candidatesRel.push(toPosix(path.join(dirRel, 'Images', raw)));
+    candidatesRel.push(toPosix(path.join(dirRel, candidate)));
+    candidatesRel.push(toPosix(path.join('Images', candidate)));
+    candidatesRel.push(toPosix(path.join(dirRel, 'Images', candidate)));
     candidatesRel.push(asGiven);
   }
 
@@ -101,14 +122,38 @@ function normalizeResourcePath(rawInput, fileAbs, vaultRoot) {
     const abs = path.join(vaultRoot, rel);
     try {
       if (fs.existsSync(abs)) {
-        // Append a cache-busting query param using file mtime so updates propagate
         const stats = fs.statSync(abs);
         const version = stats?.mtimeMs ? `?v=${Math.floor(stats.mtimeMs)}` : '';
-        return `/${toPosix(rel)}${version}`;
+        // Percent-encode spaces and other unsafe chars in the path (not the query)
+        const p = `/${toPosix(rel)}`;
+        const encoded = encodeURI(p);
+        return `${encoded}${version}`;
       }
     } catch {}
   }
-  return `/${asGiven}`;
+
+  // Basename fallback (Obsidian-style): search entire vault for the first match by filename
+  const base = toPosix(path.basename(asGiven));
+  const ext = (path.extname(base).toLowerCase() || '').replace('.', '');
+  if (!ext || IMAGE_EXTS.has(ext)) {
+    try {
+      const matches = fg.sync([toPosix(path.join(vaultRoot, '**', base))], { dot: false, onlyFiles: true });
+      if (matches && matches.length) {
+        const best = toPosix(path.relative(vaultRoot, matches[0]));
+        const stats = fs.statSync(matches[0]);
+        const version = stats?.mtimeMs ? `?v=${Math.floor(stats.mtimeMs)}` : '';
+        const p = `/${best}`;
+        const encoded = encodeURI(p);
+        return `${encoded}${version}`;
+      }
+    } catch {}
+  }
+
+  // Safe fallback: site-relative without leaking schemes
+  {
+    const p = '/' + asGiven.replace(/^\/+/, '');
+    return encodeURI(p);
+  }
 }
 
 function normalizeImagePath(fmImage, fileAbs, vaultRoot) {
@@ -134,7 +179,10 @@ function transformObsidianEmbeds(content, fileAbs, vaultRoot) {
 function rewriteMarkdownImageLinks(content, fileAbs, vaultRoot) {
   let out = String(content || '');
   // Markdown images: ![alt](url "title")
-  out = out.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g, (m, alt, url) => {
+  // Allow spaces inside the URL by capturing until the closing paren and then trimming title separately
+  out = out.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (m, alt, inside) => {
+    // Split optional title: url "title"
+    const url = String(inside).trim().replace(/\s+"[^"]*"\s*$/, '');
     const sitePath = normalizeResourcePath(url, fileAbs, vaultRoot);
     return `![${alt}](${sitePath})`;
   });
