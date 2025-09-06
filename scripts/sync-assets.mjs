@@ -3,7 +3,7 @@ import path from 'path';
 import fg from 'fast-glob';
 import config from '../site.config.mjs';
 
-const IMAGE_EXT = ['png','jpg','jpeg','gif','webp','svg','bmp','tiff','avif'];
+const IMAGE_EXT = ['png','jpg','jpeg','gif','webp','svg','bmp','tiff','avif','heic'];
 
 async function copyFileEnsureDirIfChanged(src, dest) {
   await fs.promises.mkdir(path.dirname(dest), { recursive: true });
@@ -32,15 +32,23 @@ async function syncVaultAssets() {
 
   let copied = 0;
   for (const vaultPath of vaults) {
+    // Look for images anywhere in the vault by extension, plus common image folders.
     const patterns = [
+      path.join(vaultPath, `**/*.{${IMAGE_EXT.join(',')}}`),
       path.join(vaultPath, 'Images/**/*'),
       path.join(vaultPath, 'images/**/*'),
       path.join(vaultPath, 'assets/**/*'),
       path.join(vaultPath, 'img/**/*'),
-      path.join(vaultPath, `**/*.{${IMAGE_EXT.join(',')}}`),
+      path.join(vaultPath, 'attachments/**/*'),
+      path.join(vaultPath, 'Attachment/**/*'),
+      path.join(vaultPath, 'Attachments/**/*')
     ].map(p => p.replace(/\\/g, '/'));
 
-    const ignore = (config.ignorePatterns || []).map(p => p.replace(/\\/g, '/'));
+    // Use assetIgnorePatterns if provided; fall back to ignorePatterns
+    const rawIgnore = (config.assetIgnorePatterns && config.assetIgnorePatterns.length
+      ? config.assetIgnorePatterns
+      : (config.ignorePatterns || []));
+    const ignore = rawIgnore.map(p => p.replace(/\\/g, '/'));
     const entries = await fg(patterns, { dot: false, onlyFiles: true, ignore });
 
     for (const abs of entries) {

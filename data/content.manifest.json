@@ -1,106 +1,206 @@
 {
-  "/Users/kevinwang/Obsidian::2D Material-Based Transistors.md": {
-    "mtimeMs": 1756564069672.564,
-    "size": 309
-  },
-  "/Users/kevinwang/Obsidian::8.27.2025 Retro.md": {
-    "mtimeMs": 1756329349847.7974,
-    "size": 528
-  },
-  "/Users/kevinwang/Obsidian::8.27.2025.md": {
-    "mtimeMs": 1756326610829.8076,
-    "size": 0
-  },
   "/Users/kevinwang/Obsidian::Articles.md": {
-    "mtimeMs": 1756326200313.9746,
-    "size": 2478
-  },
-  "/Users/kevinwang/Obsidian::Camp Kesem.md": {
-    "mtimeMs": 1756557414966.3203,
-    "size": 1084
-  },
-  "/Users/kevinwang/Obsidian::F=math.md": {
-    "mtimeMs": 1756564908344.9446,
-    "size": 2113
-  },
-  "/Users/kevinwang/Obsidian::Fault-Tolerant Key-Value Store.md": {
-    "mtimeMs": 1756569288840.2925,
-    "size": 5530
-  },
-  "/Users/kevinwang/Obsidian::Hire Me.md": {
-    "mtimeMs": 1756752016528.4905,
-    "size": 1001
+    "mtimeMs": 1757087072149.9275,
+    "size": 3072
   },
   "/Users/kevinwang/Obsidian::Home.md": {
-    "mtimeMs": 1756326635790.9412,
-    "size": 274
+    "mtimeMs": 1757012564707.679,
+    "size": 344
   },
-  "/Users/kevinwang/Obsidian::Journal Template.md": {
-    "mtimeMs": 1756327220318.8052,
-    "size": 227
+  "/Users/kevinwang/Obsidian::Long To-Dos.md": {
+    "mtimeMs": 1756761639934.8887,
+    "size": 1456
   },
-  "/Users/kevinwang/Obsidian::Journal.md": {
-    "mtimeMs": 1756329023999.3643,
-    "size": 82
-  },
-  "/Users/kevinwang/Obsidian::LLMonade.md": {
-    "mtimeMs": 1756324983351.32,
+  "/Users/kevinwang/Obsidian::Research Ideas.md": {
+    "mtimeMs": 1757129391306.8289,
     "size": 0
-  },
-  "/Users/kevinwang/Obsidian::Major Requirements.md": {
-    "mtimeMs": 1756733953828.1626,
-    "size": 119
-  },
-  "/Users/kevinwang/Obsidian::Media.md": {
-    "mtimeMs": 1756325134926.2961,
-    "size": 264
-  },
-  "/Users/kevinwang/Obsidian::Neural Memory Blog Post.md": {
-    "mtimeMs": 1756326543684.2087,
-    "size": 466
-  },
-  "/Users/kevinwang/Obsidian::Retros.md": {
-    "mtimeMs": 1756329148997.86,
-    "size": 21
   },
   "/Users/kevinwang/Obsidian::Scratchpad.md": {
     "mtimeMs": 1756326636304.099,
     "size": 0
   },
-  "/Users/kevinwang/Obsidian::Template.md": {
+  "/Users/kevinwang/Obsidian::Short To-Dos.md": {
+    "mtimeMs": 1756904516161.9192,
+    "size": 35
+  },
+  "/Users/kevinwang/Obsidian::Growth/Emotional learnings about craving social acceptance.md": {
+    "mtimeMs": 1757013551268.735,
+    "size": 4951
+  },
+  "/Users/kevinwang/Obsidian::Growth/Hudson Thread.md": {
+    "mtimeMs": 1756909550407.4983,
+    "size": 6441
+  },
+  "/Users/kevinwang/Obsidian::Growth/Ultraspeaking Hot Seat.md": {
+    "mtimeMs": 1756928883477.4426,
+    "size": 1282
+  },
+  "/Users/kevinwang/Obsidian::Media/Art of Accomplishment.md": {
+    "mtimeMs": 1756904191170.3113,
+    "size": 39
+  },
+  "/Users/kevinwang/Obsidian::Media/Ideas to Do for fun.md": {
+    "mtimeMs": 1756755745784.1985,
+    "size": 1264
+  },
+  "/Users/kevinwang/Obsidian::Media/Interstellar.md": {
+    "mtimeMs": 1757129348243.6223,
+    "size": 537
+  },
+  "/Users/kevinwang/Obsidian::Media/Media.md": {
+    "mtimeMs": 1756903518098.7185,
+    "size": 292
+  },
+  "/Users/kevinwang/Obsidian::Media/Replacing Guilt.md": {
+    "mtimeMs": 1756772639244.7544,
+    "size": 0
+  },
+  "/Users/kevinwang/Obsidian::Media/Tomorrow and Tomorrow and Tomorrow.md": {
+    "mtimeMs": 1756755722411.0566,
+    "size": 1915
+  },
+  "/Users/kevinwang/Obsidian::Public/2D Material-Based Transistors.md": {
+    "mtimeMs": 1756564069672.564,
+    "size": 309
+  },
+  "/Users/kevinwang/Obsidian::Public/Camp Kesem.md": {
+    "mtimeMs": 1756557414966.3203,
+    "size": 1084
+  },
+  "/Users/kevinwang/Obsidian::Public/F=math.md": {
+    "mtimeMs": 1756564908344.9446,
+    "size": 2113
+  },
+  "/Users/kevinwang/Obsidian::Public/Fault-Tolerant Key-Value Store.md": {
+    "mtimeMs": 1756569288840.2925,
+    "size": 5530
+  },
+  "/Users/kevinwang/Obsidian::Public/Hire Me.md": {
+    "mtimeMs": 1756752016528.4905,
+    "size": 1001
+  },
+  "/Users/kevinwang/Obsidian::Public/Learnings from the Museum of Fine Arts.md": {
+    "mtimeMs": 1757194111343.7095,
+    "size": 9922
+  },
+  "/Users/kevinwang/Obsidian::Public/Template.md": {
     "mtimeMs": 1756561728901.4956,
     "size": 106
   },
-  "/Users/kevinwang/Obsidian::To-Dos.md": {
-    "mtimeMs": 1756652637585.761,
-    "size": 963
-  },
-  "/Users/kevinwang/Obsidian::Towards Long-Context Memory.md": {
+  "/Users/kevinwang/Obsidian::Public/Towards Long-Context Memory.md": {
     "mtimeMs": 1756559616868.5825,
     "size": 25908
   },
-  "/Users/kevinwang/Obsidian::Fall Projects/Learning Chinese.md": {
+  "/Users/kevinwang/Obsidian::Scratch/Companies.md": {
+    "mtimeMs": 1756755687104.7144,
+    "size": 391
+  },
+  "/Users/kevinwang/Obsidian::Scratch/Hamming Circle.md": {
+    "mtimeMs": 1756755784741.9243,
+    "size": 494
+  },
+  "/Users/kevinwang/Obsidian::Media/AoA/How to Break Free From Loneliness.md": {
+    "mtimeMs": 1756904305160.7478,
+    "size": 167
+  },
+  "/Users/kevinwang/Obsidian::Media/AoA/Impartiality.md": {
+    "mtimeMs": 1757015575448.5547,
+    "size": 1622
+  },
+  "/Users/kevinwang/Obsidian::Media/AoA/VIEW.md": {
+    "mtimeMs": 1756920122902.0955,
+    "size": 2760
+  },
+  "/Users/kevinwang/Obsidian::Media/AoA/Wonder.md": {
+    "mtimeMs": 1756928963721.4307,
+    "size": 3765
+  },
+  "/Users/kevinwang/Obsidian::Public/Fall Projects/Learning Chinese.md": {
     "mtimeMs": 1756749714193.3538,
     "size": 851
   },
-  "/Users/kevinwang/Obsidian::Fall Projects/Let's Be Friends!.md": {
+  "/Users/kevinwang/Obsidian::Public/Fall Projects/Let's Be Friends!.md": {
     "mtimeMs": 1756750864229.4626,
     "size": 442
   },
-  "/Users/kevinwang/Obsidian::Fall Projects/ML Performance Reading Group.md": {
+  "/Users/kevinwang/Obsidian::Public/Fall Projects/ML Performance Reading Group.md": {
     "mtimeMs": 1756750563930.9597,
     "size": 2287
   },
-  "/Users/kevinwang/Obsidian::Fall Projects/Making a Fidget Toy.md": {
+  "/Users/kevinwang/Obsidian::Public/Fall Projects/Making a Fidget Toy.md": {
     "mtimeMs": 1756750884968.6443,
     "size": 294
   },
-  "/Users/kevinwang/Obsidian::Fall Projects/Teaching in Boston.md": {
+  "/Users/kevinwang/Obsidian::Public/Fall Projects/Teaching in Boston.md": {
     "mtimeMs": 1756751970100.2898,
     "size": 1903
   },
-  "/Users/kevinwang/Obsidian::Fall Projects/Writing Club for Seniors.md": {
+  "/Users/kevinwang/Obsidian::Public/Fall Projects/Writing Club for Seniors.md": {
     "mtimeMs": 1756749010595.019,
     "size": 1204
+  },
+  "/Users/kevinwang/Obsidian::Scratch/MIT/Clubs.md": {
+    "mtimeMs": 1756904457845.129,
+    "size": 127
+  },
+  "/Users/kevinwang/Obsidian::Scratch/MIT/Major Requirements.md": {
+    "mtimeMs": 1756733953828.1626,
+    "size": 119
+  },
+  "/Users/kevinwang/Obsidian::Journal/Journal Template.md": {
+    "mtimeMs": 1756755894471.6887,
+    "size": 458
+  },
+  "/Users/kevinwang/Obsidian::Journal/Journal.md": {
+    "mtimeMs": 1756825925586.4214,
+    "size": 155
+  },
+  "/Users/kevinwang/Obsidian::Journal/Work Block.md": {
+    "mtimeMs": 1756755567670.631,
+    "size": 0
+  },
+  "/Users/kevinwang/Obsidian::Learning/18.404 - Theory of Computation.md": {
+    "mtimeMs": 1756864197835.3909,
+    "size": 7402
+  },
+  "/Users/kevinwang/Obsidian::Learning/LLMonade.md": {
+    "mtimeMs": 1756755504468.5925,
+    "size": 78
+  },
+  "/Users/kevinwang/Obsidian::Learning/Machine Learning Codebases.md": {
+    "mtimeMs": 1756755455854.0789,
+    "size": 0
+  },
+  "/Users/kevinwang/Obsidian::Learning/Neural Memory Blog Post.md": {
+    "mtimeMs": 1756326543684.2087,
+    "size": 466
+  },
+  "/Users/kevinwang/Obsidian::Journal/August 2025/8.27.2025.md": {
+    "mtimeMs": 1756329349847.7974,
+    "size": 528
+  },
+  "/Users/kevinwang/Obsidian::Journal/Retros/9.2.2025 Retro.md": {
+    "mtimeMs": 1756901593874.7537,
+    "size": 3093
+  },
+  "/Users/kevinwang/Obsidian::Learning/6.S894/6.S894 Accelerated Computing.md": {
+    "mtimeMs": 1757012565046.065,
+    "size": 0
+  },
+  "/Users/kevinwang/Obsidian::Learning/6.S894/Lecture 1.md": {
+    "mtimeMs": 1757013096515.1748,
+    "size": 988
+  },
+  "/Users/kevinwang/Obsidian::Journal/September 2025/9.1.2025.md": {
+    "mtimeMs": 1756773294316.783,
+    "size": 1118
+  },
+  "/Users/kevinwang/Obsidian::Journal/September 2025/9.2.2025.md": {
+    "mtimeMs": 1756825670519.8467,
+    "size": 679
+  },
+  "/Users/kevinwang/Obsidian::Journal/September 2025/9.3.2025.md": {
+    "mtimeMs": 1756992530426.2317,
+    "size": 1909
   }
 }

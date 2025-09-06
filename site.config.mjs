@@ -9,7 +9,12 @@ export default {
     "**/.trash/**",
     "**/Templates/**",
     "**/template/**",
-    "**/attachments/**",
+    "**/node_modules/**"
+  ],
+  // Asset sync can use a looser ignore set than markdown building
+  assetIgnorePatterns: [
+    "**/.obsidian/**",
+    "**/.trash/**",
     "**/node_modules/**"
   ],
   sectionTags: {
