@@ -11,14 +11,6 @@
     "mtimeMs": 1759694474138.2373,
     "size": 590
   },
-  "/Users/kevinwang/Obsidian::Concrete Architecture.md": {
-    "mtimeMs": 1758315930661.5396,
-    "size": 333
-  },
-  "/Users/kevinwang/Obsidian::Decade of Deep Learning.md": {
-    "mtimeMs": 1758054608878.748,
-    "size": 1867
-  },
   "/Users/kevinwang/Obsidian::Decision Making 1.md": {
     "mtimeMs": 1758743369104.6597,
     "size": 631
@@ -47,6 +39,10 @@
     "mtimeMs": 1758115553328.7546,
     "size": 1551
   },
+  "/Users/kevinwang/Obsidian::ML Notes.md": {
+    "mtimeMs": 1762663646874.788,
+    "size": 2961
+  },
   "/Users/kevinwang/Obsidian::Making Deep Learning Go Faster.md": {
     "mtimeMs": 1758668580796.2014,
     "size": 0
@@ -54,6 +50,14 @@
   "/Users/kevinwang/Obsidian::Mason Wang Handbook.md": {
     "mtimeMs": 1758644263596.2407,
     "size": 4423
+  },
+  "/Users/kevinwang/Obsidian::Muon.md": {
+    "mtimeMs": 1763506229293.0513,
+    "size": 1232
+  },
+  "/Users/kevinwang/Obsidian::Optimized CUDA Matmul Kernel.md": {
+    "mtimeMs": 1762528874373.8506,
+    "size": 0
   },
   "/Users/kevinwang/Obsidian::Places.md": {
     "mtimeMs": 1761236564056.0574,
@@ -103,13 +107,9 @@
     "mtimeMs": 1756326636304.099,
     "size": 0
   },
-  "/Users/kevinwang/Obsidian::Short To-Dos.md": {
-    "mtimeMs": 1756904516161.9192,
-    "size": 35
-  },
-  "/Users/kevinwang/Obsidian::Untitled.md": {
-    "mtimeMs": 1759702327640.5305,
-    "size": 5620
+  "/Users/kevinwang/Obsidian::What do I want to do?.md": {
+    "mtimeMs": 1763131984177.578,
+    "size": 903
   },
   "/Users/kevinwang/Obsidian::Growth/Art of Accomplishment.md": {
     "mtimeMs": 1756904191170.3113,
@@ -139,22 +139,6 @@
     "mtimeMs": 1758238561142.0952,
     "size": 1283
   },
-  "/Users/kevinwang/Obsidian::Media/Interstellar.md": {
-    "mtimeMs": 1757129348243.6223,
-    "size": 537
-  },
-  "/Users/kevinwang/Obsidian::Media/Media.md": {
-    "mtimeMs": 1756903518098.7185,
-    "size": 292
-  },
-  "/Users/kevinwang/Obsidian::Media/Tomorrow and Tomorrow and Tomorrow.md": {
-    "mtimeMs": 1756755722411.0566,
-    "size": 1915
-  },
-  "/Users/kevinwang/Obsidian::Machine Learning Notes/10.9 - Transformer Training Script.md": {
-    "mtimeMs": 1760122559753.7405,
-    "size": 790
-  },
   "/Users/kevinwang/Obsidian::Journal/Beauty Journal.md": {
     "mtimeMs": 1758474433989.1223,
     "size": 885
@@ -175,25 +159,9 @@
     "mtimeMs": 1758474399938.8308,
     "size": 136
   },
-  "/Users/kevinwang/Obsidian::ML/How To Scale Your Model.md": {
-    "mtimeMs": 1757447447875.3462,
-    "size": 1278
-  },
-  "/Users/kevinwang/Obsidian::ML/LLMonade.md": {
-    "mtimeMs": 1756755504468.5925,
-    "size": 78
-  },
-  "/Users/kevinwang/Obsidian::ML/Machine Learning Codebases.md": {
-    "mtimeMs": 1756755455854.0789,
-    "size": 0
-  },
-  "/Users/kevinwang/Obsidian::ML/Neural Memory Blog Post.md": {
-    "mtimeMs": 1756326543684.2087,
-    "size": 466
-  },
-  "/Users/kevinwang/Obsidian::ML/Vignette - Regression.md": {
-    "mtimeMs": 1757794033009.6572,
-    "size": 14
+  "/Users/kevinwang/Obsidian::Machine Learning Notes/10.9 - Transformer Training Script.md": {
+    "mtimeMs": 1760122559753.7405,
+    "size": 790
   },
   "/Users/kevinwang/Obsidian::Other Learning/18.404 - Theory of Computation.md": {
     "mtimeMs": 1756864197835.3909,
@@ -202,6 +170,10 @@
   "/Users/kevinwang/Obsidian::Other Learning/6.4610 - Natural Language Processing.md": {
     "mtimeMs": 1758289350182.0088,
     "size": 2171
+  },
+  "/Users/kevinwang/Obsidian::Public/18.404 - Theory of Computation Notes.md": {
+    "mtimeMs": 1764720474348.2466,
+    "size": 7477
   },
   "/Users/kevinwang/Obsidian::Public/2D Material-Based Transistors.md": {
     "mtimeMs": 1756564069672.564,
@@ -224,8 +196,8 @@
     "size": 5530
   },
   "/Users/kevinwang/Obsidian::Public/Hire Me.md": {
-    "mtimeMs": 1757388197187.5476,
-    "size": 1018
+    "mtimeMs": 1764721508729.869,
+    "size": 683
   },
   "/Users/kevinwang/Obsidian::Public/Joyce Old.md": {
     "mtimeMs": 1762091577849.4978,
@@ -239,6 +211,14 @@
     "mtimeMs": 1757195880715.2954,
     "size": 9980
   },
+  "/Users/kevinwang/Obsidian::Public/PyTorch Learnings.md": {
+    "mtimeMs": 1763527116473.0264,
+    "size": 3177
+  },
+  "/Users/kevinwang/Obsidian::Public/Synthetic Datasets for In-Context Learning.md": {
+    "mtimeMs": 1764720478120.1526,
+    "size": 4225
+  },
   "/Users/kevinwang/Obsidian::Public/Template.md": {
     "mtimeMs": 1756561728901.4956,
     "size": 106
@@ -246,6 +226,18 @@
   "/Users/kevinwang/Obsidian::Public/Towards Long-Context Memory.md": {
     "mtimeMs": 1756559616868.5825,
     "size": 25908
+  },
+  "/Users/kevinwang/Obsidian::Media/Interstellar.md": {
+    "mtimeMs": 1757129348243.6223,
+    "size": 537
+  },
+  "/Users/kevinwang/Obsidian::Media/Media.md": {
+    "mtimeMs": 1756903518098.7185,
+    "size": 292
+  },
+  "/Users/kevinwang/Obsidian::Media/Tomorrow and Tomorrow and Tomorrow.md": {
+    "mtimeMs": 1756755722411.0566,
+    "size": 1915
   },
   "/Users/kevinwang/Obsidian::Scratch/Companies.md": {
     "mtimeMs": 1760559982471.133,
@@ -255,9 +247,25 @@
     "mtimeMs": 1756755784741.9243,
     "size": 494
   },
-  "/Users/kevinwang/Obsidian::kavnwang.github.io/Joyce.md": {
-    "mtimeMs": 1759948477336.1575,
+  "/Users/kevinwang/Obsidian::ML/How To Scale Your Model.md": {
+    "mtimeMs": 1757447447875.3462,
+    "size": 1278
+  },
+  "/Users/kevinwang/Obsidian::ML/LLMonade.md": {
+    "mtimeMs": 1756755504468.5925,
+    "size": 78
+  },
+  "/Users/kevinwang/Obsidian::ML/Machine Learning Codebases.md": {
+    "mtimeMs": 1756755455854.0789,
     "size": 0
+  },
+  "/Users/kevinwang/Obsidian::ML/Neural Memory Blog Post.md": {
+    "mtimeMs": 1756326543684.2087,
+    "size": 466
+  },
+  "/Users/kevinwang/Obsidian::ML/Vignette - Regression.md": {
+    "mtimeMs": 1757794033009.6572,
+    "size": 14
   },
   "/Users/kevinwang/Obsidian::Growth/AoA/Anxiety.md": {
     "mtimeMs": 1757258727360.875,
@@ -459,13 +467,17 @@
     "mtimeMs": 1756329349847.7974,
     "size": 528
   },
-  "/Users/kevinwang/Obsidian::Journal/Retros/9.2.2025 Retro.md": {
-    "mtimeMs": 1756901593874.7537,
-    "size": 3093
+  "/Users/kevinwang/Obsidian::Journal/November 2025/11.16.2025.md": {
+    "mtimeMs": 1763333137765.2344,
+    "size": 1228
   },
   "/Users/kevinwang/Obsidian::Journal/October 2025/10.1.2025.md": {
     "mtimeMs": 1759405715176.4485,
     "size": 2789
+  },
+  "/Users/kevinwang/Obsidian::Journal/Retros/9.2.2025 Retro.md": {
+    "mtimeMs": 1756901593874.7537,
+    "size": 3093
   },
   "/Users/kevinwang/Obsidian::Journal/September 2025/10.26.2025.md": {
     "mtimeMs": 1761525212801.0261,
@@ -535,26 +547,6 @@
     "mtimeMs": 1758484897856.8254,
     "size": 12
   },
-  "/Users/kevinwang/Obsidian::ML/GPU Mode/Lecture 1.md": {
-    "mtimeMs": 1757426118121.9978,
-    "size": 208
-  },
-  "/Users/kevinwang/Obsidian::ML/GPU and Kernels/Lecture 1.md": {
-    "mtimeMs": 1757013096515.1748,
-    "size": 988
-  },
-  "/Users/kevinwang/Obsidian::ML/GPU and Kernels/Simon Oz.md": {
-    "mtimeMs": 1757351899353.6367,
-    "size": 1424
-  },
-  "/Users/kevinwang/Obsidian::ML/Performance Reading Group/Untitled.md": {
-    "mtimeMs": 1757422643330.2131,
-    "size": 96
-  },
-  "/Users/kevinwang/Obsidian::ML/Research/Research Ideas.md": {
-    "mtimeMs": 1757270335247.8196,
-    "size": 3544
-  },
   "/Users/kevinwang/Obsidian::Public/Fall Projects/Learning Chinese.md": {
     "mtimeMs": 1756749714193.3538,
     "size": 851
@@ -590,5 +582,25 @@
   "/Users/kevinwang/Obsidian::Scratch/MIT/Major Requirements.md": {
     "mtimeMs": 1756733953828.1626,
     "size": 119
+  },
+  "/Users/kevinwang/Obsidian::ML/GPU Mode/Lecture 1.md": {
+    "mtimeMs": 1757426118121.9978,
+    "size": 208
+  },
+  "/Users/kevinwang/Obsidian::ML/GPU and Kernels/Lecture 1.md": {
+    "mtimeMs": 1757013096515.1748,
+    "size": 988
+  },
+  "/Users/kevinwang/Obsidian::ML/GPU and Kernels/Simon Oz.md": {
+    "mtimeMs": 1757351899353.6367,
+    "size": 1424
+  },
+  "/Users/kevinwang/Obsidian::ML/Performance Reading Group/Untitled.md": {
+    "mtimeMs": 1757422643330.2131,
+    "size": 96
+  },
+  "/Users/kevinwang/Obsidian::ML/Research/Research Ideas.md": {
+    "mtimeMs": 1757270335247.8196,
+    "size": 3544
   }
 }
