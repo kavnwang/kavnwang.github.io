@@ -25,7 +25,7 @@ export default function HomePage() {
       </p>
       <h1>Hey, I'm Kevin!</h1>
       <p>
-        I'm an undergraduate student at MIT interested in machine learning research, specifically architectures and learning algorithms that improve language models' test-time learning and generalization abilities. I value unconditional kindness, authenticity, and wonder. I currently live in Cambridge, MA.
+        I'm a rising junior at MIT, based in Cambridge, MA. I value unconditional kindness, authenticity, and wonder. Visit my <a href="https://linkedin.com/in/kevinhaoyuwang">LinkedIn</a> for professional purposes, or <a href="https://wangk.substack.com/p/lets-be-friends">this post</a> if you want to be friends!
       </p>
       <p>I'd love to meet you, so please <a href="mailto:kevinhw@mit.edu">email</a> if you'd like to chat :) </p>
 
